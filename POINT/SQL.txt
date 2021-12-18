@@ -1,0 +1,31 @@
+select first_name , last_name , birth_date, account_creation_date from account where account_creation_date like "2017%"
+
+select * from game left join  company on Developer = company.id  where country = "USA" and Release_date < "2011-01-01" and is_online = 1 order by game.id asc 
+
+insert into game (Game_name, Release_date, Genre, Developer, Is_online, price) values ('Red Dead Redemption', '2010-05-18', 1, 12, 0, 2000)
+
+update game set price = 2000 where Game_name = "Red Dead Redemption"
+
+delete from game where Game_name = "Red Dead Redemption"
+
+select login from account left join transactions on account.id = account_id group by login HAVING COUNT(account_id) >10
+
+select login from account left join transactions on account.id = account_id left join game on game_id = game.id left join company on company.id = developer where year(Release_date)%2=0 and country = "USA"  group by login
+
+select account.login from account right join
+(select login, 
+case
+when country = "USA"
+then '0'
+else '1'
+end isUSA,
+case 
+when year(Release_date)%2=0
+then '0'
+else '1'
+end isMOD2
+from account
+left join transactions on account.id = account_id 
+left join game on game_id = game.id 
+left join company on company.id = developer
+group by login having sum(isUSA) = 0 and sum(isMOD2)=0) as Temp on account.login = Temp.login

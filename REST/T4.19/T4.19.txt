@@ -1,0 +1,11 @@
+pm.test("Same name and email in file and response", function () {
+    var jsonData = pm.response.json();
+    pm.expect(jsonData.email).to.eql(pm.iterationData.get("email"));
+    pm.expect(jsonData.name).to.eql(pm.iterationData.get("name"));
+});
+
+
+
+https://prnt.sc/17batp3
+
+https://prnt.sc/17bb6gh

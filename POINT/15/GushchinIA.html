@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+	<title>GushchinIA</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Test 1</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>http://creditcalculator.pointschool.ru/credit# <datalist><option>http://creditcalculator.pointschool.ru/credit# </option></datalist></td><td></td>
+</tr>
+<tr><td>loadVars</td><td>data_GushchinIA.json<datalist><option>100000</option><option>csvjson.json</option><option>data_GushchinIA.json</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>css=*[data-btn-action="do-result"]<datalist><option>xpath=(//button[@type='button'])[2]</option><option>//div[@id='credit-data-form']/div/form/div/div[4]/button</option><option>//div[4]/button</option><option>css=button.btn.btn-primary</option><option>css=#credit-data-form &gt; div &gt; form &gt; div &gt; div.form-group.col-md-3.m-auto.pt-3 &gt; button</option><option>css=*[data-btn-action="do-result"]</option></datalist></td><td></td>
+</tr>
+<tr><td>click</td><td>link=заполните анкету<datalist><option>link=заполните анкету</option><option>//a[contains(text(),'заполните анкету')]</option><option>//div[@id='credit-short-result-form']/div[2]/div[2]/a</option><option>//a[contains(@href, '#')]</option><option>//div[2]/a</option><option>css=div.alert.alert-dark.mt-4 &gt; a</option></datalist></td><td></td>
+</tr>
+<tr><td>type</td><td>name=field-desired-loan<datalist><option>name=field-desired-loan</option><option>//input[@name='field-desired-loan']</option><option>//div[@id='credit-data-form']/div/form/div/div/input</option><option>//input</option><option>css=input[name="field-desired-loan"]</option></datalist></td><td>${desiredLoan}</td>
+</tr>
+<tr><td>type</td><td>name=field-initial-payment<datalist><option>name=field-initial-payment</option><option>//input[@name='field-initial-payment']</option><option>//div[@id='credit-data-form']/div/form/div/div[2]/input</option><option>//div[2]/input</option><option>css=input[name="field-initial-payment"]</option></datalist></td><td>${initialPayment}</td>
+</tr>
+<tr><td>type</td><td>name=field-credit-term<datalist><option>name=field-credit-term</option><option>//input[@name='field-credit-term']</option><option>//div[@id='credit-data-form']/div/form/div/div[3]/input</option><option>//div[3]/input</option><option>css=input[name="field-credit-term"]</option></datalist></td><td>${creditTerm}</td>
+</tr>
+<tr><td>type</td><td>name=second-name<datalist><option>name=second-name</option><option>//input[@name='second-name']</option><option>//div[@id='credit-data-user-form']/div[2]/form/div/div/input</option><option>//div[2]/form/div/div/input</option><option>css=input[name="second-name"]</option></datalist></td><td>${second-name}</td>
+</tr>
+<tr><td>type</td><td>name=first-name<datalist><option>name=second-name</option><option>//input[@name='second-name']</option><option>//div[@id='credit-data-user-form']/div[2]/form/div/div/input</option><option>//div[2]/form/div/div/input</option><option>css=input[name="second-name"]</option><option>name=first-name</option></datalist></td><td>${first-name}</td>
+</tr>
+<tr><td>type</td><td>name=middle-name<datalist><option>name=second-name</option><option>//input[@name='second-name']</option><option>//div[@id='credit-data-user-form']/div[2]/form/div/div/input</option><option>//div[2]/form/div/div/input</option><option>css=input[name="second-name"]</option><option>name=middle-name</option></datalist></td><td>${middle-name}</td>
+</tr>
+<tr><td>type</td><td>name=passport<datalist><option>name=passport</option><option>//input[@name='passport']</option><option>//div[@id='credit-data-user-form']/div[2]/form/div[2]/div/input</option><option>//div[2]/div/input</option><option>css=input[name="passport"]</option></datalist></td><td>${passport}</td>
+</tr>
+<tr><td>type</td><td>name=issued-by<datalist><option>name=issued-by</option></datalist></td><td>${issued-by}</td>
+</tr>
+<tr><td>type</td><td>name=issued-date<datalist><option>name=issued-date</option></datalist></td><td>${issued-date}</td>
+</tr>
+<tr><td>select</td><td>name=education<datalist><option>name=education</option></datalist></td><td>${education}</td>
+</tr>
+<tr><td>select</td><td>name=seniority<datalist><option>name=seniority</option></datalist></td><td>${seniority}</td>
+</tr>
+<tr><td>select</td><td>name=term-work-last-place<datalist><option>name=term-work-last-place</option></datalist></td><td>${term-work-last-place}</td>
+</tr>
+<tr><td>select</td><td>name=confirmation-income-ndfl<datalist><option>name=confirmation-income-ndfl</option></datalist></td><td>${confirmation-income-ndfl}</td>
+</tr>
+<tr><td>select</td><td>name=work-place-bank-area<datalist><option>name=work-place-bank-area</option></datalist></td><td>${work-place-bank-area}</td>
+</tr>
+<tr><td>type</td><td>name=net-income<datalist><option>name=net-income</option></datalist></td><td>${net-income}</td>
+</tr>
+<tr><td>select</td><td>name=registration-place-bank-area<datalist><option>name=registration-place-bank-area</option></datalist></td><td>${registration-place-bank-area}</td>
+</tr>
+<tr><td>select</td><td>name=previous-conviction<datalist><option>name=previous-conviction</option></datalist></td><td>${previous-conviction}</td>
+</tr>
+<tr><td>select</td><td>name=car<datalist><option>name=car</option></datalist></td><td>${car}</td>
+</tr>
+<tr><td>select</td><td>name=real-estate<datalist><option>name=real-estate</option></datalist></td><td>${real-estate}</td>
+</tr>
+<tr><td>click</td><td>css=*[data-btn-action="do-result"]<datalist><option>css=#credit-data-form &gt; div &gt; form &gt; div &gt; div.form-group.col-md-3.m-auto.pt-3 &gt; button</option><option>xpath=(//button[@type='button'])[2]</option><option>//div[@id='credit-data-form']/div/form/div/div[4]/button</option><option>//div[4]/button</option><option>css=button.btn.btn-primary</option><option>css=*[data-btn-action="do-result"]</option></datalist></td><td></td>
+</tr>
+<tr><td>waitForNotVisible</td><td>class=modal-open<datalist><option>id=loadingModal</option><option>id=credit-message</option><option>css=#credit-full-result-form &gt; div.card-body &gt; div &gt; div:nth-child(2) &gt; div.mx-auto.text-center &gt; button</option><option>class=modal</option><option>class=modal-open</option></datalist></td><td></td>
+</tr>
+<tr><td>addScript</td><td>window.scrollTo(0, document.body.scrollHeight)<datalist><option>window.scrollTo(0, document.body.scrollHeight)</option></datalist></td><td></td>
+</tr>
+<tr><td>assertText</td><td>id=credit-message<datalist><option>id=credit-message</option></datalist></td><td>${iforgetthisperemennaya}</td>
+</tr>
+<tr><td>assertText</td><td>id=credit-rate<datalist><option>id=credit-rate</option></datalist></td><td>${credit-rate}</td>
+</tr>
+<tr><td>assertText</td><td>id=credit-monthly-payment-full<datalist><option>id=credit-monthly-payment-full</option></datalist></td><td>${credit-monthly-payment-full}</td>
+</tr>
+<tr><td>assertText</td><td>id=credit-credit-overpayment<datalist><option>id=credit-credit-overpayment</option></datalist></td><td>${id=credit-credit-overpayment}</td>
+</tr>
+<tr><td>assertText</td><td>id=payments-loan-period<datalist><option>id=payments-loan-period</option></datalist></td><td>${payments-loan-period}</td>
+</tr>
+</tbody></table>
+</body>
+</html>

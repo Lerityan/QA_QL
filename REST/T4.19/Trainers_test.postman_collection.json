@@ -1,0 +1,1175 @@
+{
+	"info": {
+		"_postman_id": "e840fde8-c10a-4333-b045-c0773b433d46",
+		"name": "Trainers_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1. Пишем первый тест",
+			"item": [
+				{
+					"name": "Регистрация пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1715331e-373e-48fb-b46c-59ebf3bc7fc9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_demo_1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Демо 1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "2. Тест на JSON из сниппетов",
+			"item": [
+				{
+					"name": "Test body from snippet",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fdf653c4-9f7b-47eb-b877-86e017a502e6",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    ",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    console.log(pm.response); ",
+									"    console.log(jsonData); ",
+									"    console.log(pm.response.json()); ",
+									"    ",
+									"    pm.expect(pm.response.json().type).to.eql(\"error\");",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_demo_1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Демо 1",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e12b6bff-b943-4243-8661-4930c52c0678",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "16fce07d-18d6-4951-b357-9d8ffa7cd7e1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "3. Достать данные из ответа",
+			"item": [
+				{
+					"name": "Достать значение из простого JSON",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6eaed7e5-f9d7-43fd-9c8f-5b9260ca21fe",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"console.log(jsonData);",
+									"",
+									"console.log(jsonData.message);",
+									"console.log(jsonData[\"message\"]);",
+									"console.log(jsonData['message']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_demo_2@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Демо 2",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Подсказки: JSON в ответе",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1754851e-d849-4dae-9c6c-5ddd86b2b84b",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"console.log(jsonData);",
+									"",
+									"anna = jsonData.suggestions[0].value;",
+									"console.log(anna);",
+									"",
+									"anna_gender = jsonData.suggestions[0].data.gender;",
+									"anna_gender_1 = jsonData[\"suggestions\"][0][\"data\"][\"gender\"];",
+									"anna_gender_2 = jsonData['suggestions'][0]['data'][\"gender\"];",
+									"",
+									"console.log(anna_gender);",
+									"console.log(anna_gender_1);",
+									"console.log(anna_gender_2);",
+									"",
+									"pm.test(\"Анна первая, пыщ-пыщ!\", function () {",
+									"    pm.expect(anna_gender_2).to.eql(\"FEMALE\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"Ан\",\r\n  \"gender\": \"FEMALE\"\r\n} "
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Подсказки: XML в ответе",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e191e26-8d25-4514-9541-6987e32dbad9",
+								"exec": [
+									"var jsonData = xml2Json(responseBody);",
+									"console.log(jsonData);",
+									"",
+									"anna = jsonData.SuggestResponse.suggestions[0].value;",
+									"console.log(anna);",
+									"",
+									"",
+									"anna_gender = jsonData.SuggestResponse.suggestions[0].data.gender;",
+									"anna_gender_1 = jsonData[\"SuggestResponse\"][\"suggestions\"][0][\"data\"][\"gender\"];",
+									"anna_gender_2 = jsonData['SuggestResponse']['suggestions'][0]['data'][\"gender\"];",
+									"anna_gender_3 = jsonData['SuggestResponse'].suggestions[0]['data'][\"gender\"];",
+									"",
+									"console.log(anna_gender);",
+									"console.log(anna_gender_1);",
+									"console.log(anna_gender_2);",
+									"console.log(anna_gender_3); ",
+									"",
+									"",
+									"pm.test(\"Анна первая, пыщ-пыщ!\", function () {",
+									"    pm.expect(anna).to.eql(\"Анна\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "Token 793d2830a6360a1569c8e7b9dd1afeb2f57ffa77"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"query\": \"Ан\",\r\n  \"gender\": \"FEMALE\"\r\n} "
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getuserfull",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "779a6c47-5fd3-42cc-abb4-8e75688b3bce",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"console.log(jsonData);",
+									"",
+									"console.log(jsonData.name);",
+									"console.log(jsonData[\"email\"]);",
+									"console.log(jsonData['date_start']);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"test_demo_2@gmail.com\"\r\n} \r\n"
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/getuserfull",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"getuserfull"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "7. Как запустить  несколько запросов  подряд ",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7efd9b1e-c958-4648-ae50-cb309158679a",
+								"exec": [
+									"// Локальная переменная\r",
+									"\r",
+									"// to set a value\r",
+									"pm.variables.set(\"key\", \"локальная\");\r",
+									"\r",
+									"// to retrieve a value\r",
+									"var local = pm.variables.get(\"key\");\r",
+									"\r",
+									"var local2 = \"не менее локальная\";\r",
+									"\r",
+									"// Нельзя вызвать через гет не установленную через сеттер переменную\r",
+									"local_get_simple = pm.variables.get(\"local2\");\r",
+									"\r",
+									"\r",
+									"console.log(\"Первый запрос, тест\");\r",
+									"console.log(local);\r",
+									"console.log(local2);\r",
+									"\r",
+									"console.log(local_get_simple);\r",
+									"\r",
+									"/*\r",
+									"pm.test(\"Самый простой пример использования переменной локальной\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.type).to.eql(\"error\");\r",
+									"});\r",
+									"*/\r",
+									"\r",
+									"\r",
+									"console.log(Math.random());\r",
+									"console.log(Math.floor(Math.random() * 100));\r",
+									"\r",
+									"\r",
+									"console.log(\"Переменная энвайромента\");\r",
+									"pm.environment.set(\"test_env\", \"Строковое значение энвайромент переменной\");"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f508b7a6-986d-404d-a749-10396026a8d6",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_video_133@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "видео 133",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Заполняем все поля",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "39fabf52-9462-4401-8dcf-04770b05d056",
+								"exec": [
+									"//console.log(local);",
+									"//console.log(local2);",
+									"",
+									"console.log(\"Второй запрос, тест\");",
+									"console.log(pm.variables.get(\"name_count\"));",
+									"// Так не сработает",
+									"// console.log(name_count);",
+									"console.log(x);",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "097935da-aa3c-4394-be09-9813192cfcfc",
+								"exec": [
+									"console.log(\"Перед запросом\");",
+									"",
+									"//name_count = Math.floor(Math.random() * 100);",
+									"",
+									"pm.variables.set(\"name_count\", Math.floor(Math.random() * 100));",
+									"x = 100;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_video_133@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "hobby",
+									"value": "Стрельба из лука, Настолки",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomBoolean}}",
+									"type": "text"
+								},
+								{
+									"key": "name1",
+									"value": "имечко",
+									"type": "text"
+								},
+								{
+									"key": "surname1",
+									"value": "Ивано",
+									"type": "text"
+								},
+								{
+									"key": "fathername1",
+									"value": "Петров",
+									"type": "text"
+								},
+								{
+									"key": "cat",
+									"value": "Маруся",
+									"type": "text"
+								},
+								{
+									"key": "dog",
+									"value": "Ушастый",
+									"type": "text"
+								},
+								{
+									"key": "parrot",
+									"value": "Васька",
+									"type": "text"
+								},
+								{
+									"key": "cavy",
+									"value": "Кто ты?",
+									"type": "text"
+								},
+								{
+									"key": "hamster",
+									"value": "Хомяк",
+									"type": "text"
+								},
+								{
+									"key": "squirrel",
+									"value": "Белая горячка к нам пришла",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "333 33 33",
+									"type": "text"
+								},
+								{
+									"key": "adres",
+									"value": "адрес 1",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "m",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "01.01.1900",
+									"type": "text"
+								},
+								{
+									"key": "date_start",
+									"value": "11.11.2000",
+									"type": "text"
+								},
+								{
+									"key": "inn",
+									"value": "123456789012",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/fullupdateuser",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"fullupdateuser"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "8. Как запустить один запрос несколько раз",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb27b458-644f-46c8-8fa8-10b155954282",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b382391f-b153-4e7b-8ad2-98612e2bdebb",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_video_{{$randomInt}}@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "видео {{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "9. Как передать рандомные значения в Postman",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c920adc4-78b4-4cfb-a3ed-d05a06da33de",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e834e8a0-cabc-43a1-ad3a-c1936dc16d9a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "any",
+								"value": "{{$randomInt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test_video_{{$guid}}@mail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "видео {{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get issue",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9988ea8d-3997-49e0-a5d7-f4785173899b",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"console.log(jsonData);",
+									"",
+									"pm.test(\"Связь с основным багом\", function () {",
+									"    pm.expect(jsonData).to.nested.include({'fields.issuelinks[0].inwardIssue.summary': \"Основной баг\"});",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "r9I4EaIxc04ozGZHYSxtE1CE",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "mail.for.testbase@yandex.ru",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://testbase.atlassian.net/rest/api/3/issue/TV-{{$randomInt}}",
+							"protocol": "https",
+							"host": [
+								"testbase",
+								"atlassian",
+								"net"
+							],
+							"path": [
+								"rest",
+								"api",
+								"3",
+								"issue",
+								"TV-{{$randomInt}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "10. Переменные и окружения",
+			"item": [
+				{
+					"name": "Токен в заголовках",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a55fd17e-9e20-4294-a15c-b05934f0ee2c",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonObject = xml2Json(responseBody);",
+									"console.log(jsonObject);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/xml"
+							},
+							{
+								"key": "Accept",
+								"value": "application/xml"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{Token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<req>\r\n    <query>Ан</query>\r\n    <gender>FEMALE</gender>\r\n</req>\r\n"
+						},
+						"url": {
+							"raw": "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/fio",
+							"protocol": "https",
+							"host": [
+								"suggestions",
+								"dadata",
+								"ru"
+							],
+							"path": [
+								"suggestions",
+								"api",
+								"4_1",
+								"rs",
+								"suggest",
+								"fio"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "11. Как считать данные из файла",
+			"item": [
+				{
+					"name": "Создание пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "181b6eaa-685d-4ba2-8d9e-5041b2d991fb",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "b11f4b0d-e457-4a69-a03f-55a82d1b4323",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "any",
+								"value": "{{$randomInt}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "{{name}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "12. Переиспользование переменных",
+			"item": [
+				{
+					"name": "1. Регистрация пользователя",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "dc906c1f-1624-47cf-86b8-522551d73b5c",
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"email\", jsonData.email);",
+									"postman.setEnvironmentVariable(\"name\", jsonData.name);",
+									"",
+									"console.log(jsonData);",
+									"",
+									"pm.test(\"Он все же создан, у него есть поле пол\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.gender).to.eql(\"\");",
+									"});",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "test+{{$randomInt}}@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Красавчик {{$randomInt}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/doregister",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"doregister"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. Обновляем пользователю dog",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "632839fa-8a52-4f07-b35f-86c8de575b90",
+								"type": "text/javascript",
+								"exec": [
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "{{email}}"
+								},
+								{
+									"key": "field",
+									"value": "dog",
+									"type": "text"
+								},
+								{
+									"key": "value",
+									"value": "Новое значение",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://users.bugred.ru/tasks/rest/useronefield",
+							"protocol": "http",
+							"host": [
+								"users",
+								"bugred",
+								"ru"
+							],
+							"path": [
+								"tasks",
+								"rest",
+								"useronefield"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "f8938e7c-0b99-4b24-953f-1463af9ceb38",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "77a88094-ea0e-49a6-864d-cfddad247061",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
